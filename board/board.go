@@ -160,7 +160,7 @@ func PopBit(bitBoard *uint64, square BitSquare) {
 }
 
 // 2d array of uint64
-var pawnAttacks [2][64]uint64
+var PawnAttacks [2][64]uint64
 
 /*
 
@@ -275,3 +275,12 @@ func Mask_pawn_attacks(square BitSquare, side Side) (attacks uint64) {
 
 }
 
+func InitLeaperAttacks() {
+	// loop over 64 board squares 
+
+	for square := 0; square < 64; square++ {
+		//init pawn attacks
+		PawnAttacks[White][square] = Mask_pawn_attacks(BitSquare(square), White)
+		PawnAttacks[Black][square] = Mask_pawn_attacks(BitSquare(square), Black)
+	}
+}

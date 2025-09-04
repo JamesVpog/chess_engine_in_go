@@ -25,16 +25,10 @@ func main() {
 	// }
 
 	
-	// attack mask of the e4 pawn 
-	board.PrintBitBoard(board.Mask_pawn_attacks(board.E4, board.White))
-	board.PrintBitBoard(board.Mask_pawn_attacks(board.E4, board.Black))
+	// seeing all possible attacks of every pawn position 
+	board.InitLeaperAttacks()
+	for i :=0; i < 64; i++ {
+		board.PrintBitBoard(board.PawnAttacks[board.Black][i])
+	}
 
-	// attack mask of edge cases: the h4 pawn
-	board.PrintBitBoard(board.Mask_pawn_attacks(board.H4, board.White))
-	board.PrintBitBoard(board.Mask_pawn_attacks(board.H4, board.Black))
-
-
-	// attack mask of edge cases: the a4 pawn 
-	board.PrintBitBoard(board.Mask_pawn_attacks(board.A4, board.White))
-	board.PrintBitBoard(board.Mask_pawn_attacks(board.A4, board.Black))
 }
